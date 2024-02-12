@@ -1,7 +1,7 @@
 package com.mendonca.voll_med.dtos;
 
-import com.mendonca.voll_med.model.Especialidade;
-import com.mendonca.voll_med.model.Medico;
+import com.mendonca.voll_med.domain.model.Especialidade;
+import com.mendonca.voll_med.domain.model.Medico;
 
 public record MedicoDto(Long id,String nome, String email, String crm, Especialidade especialidade) {
 

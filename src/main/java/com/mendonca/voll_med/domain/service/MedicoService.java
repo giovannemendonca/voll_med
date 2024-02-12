@@ -1,12 +1,12 @@
-package com.mendonca.voll_med.service;
+package com.mendonca.voll_med.domain.service;
 
+import com.mendonca.voll_med.domain.repository.MedicoRepository;
 import com.mendonca.voll_med.dtos.DetalhamentoMedico;
 import com.mendonca.voll_med.dtos.MedicoDto;
 import com.mendonca.voll_med.dtos.input.AtualizacaoMedico;
 import com.mendonca.voll_med.dtos.input.CadastroMedico;
 import com.mendonca.voll_med.exception.MedicoNotFoundException;
-import com.mendonca.voll_med.model.Medico;
-import com.mendonca.voll_med.repository.MedicoRepository;
+import com.mendonca.voll_med.domain.model.Medico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

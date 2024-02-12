@@ -1,4 +1,4 @@
-package com.mendonca.voll_med.model;
+package com.mendonca.voll_med.domain.model;
 
 import com.mendonca.voll_med.dtos.input.AtualizacaoPaciente;
 import com.mendonca.voll_med.dtos.input.CadastroPaciente;

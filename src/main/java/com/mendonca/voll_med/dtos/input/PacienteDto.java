@@ -1,6 +1,6 @@
 package com.mendonca.voll_med.dtos.input;
 
-import com.mendonca.voll_med.model.Paciente;
+import com.mendonca.voll_med.domain.model.Paciente;
 
 public record PacienteDto(
         Long id,

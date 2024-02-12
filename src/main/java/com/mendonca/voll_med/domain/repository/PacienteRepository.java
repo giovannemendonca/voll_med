@@ -1,6 +1,6 @@
-package com.mendonca.voll_med.repository;
+package com.mendonca.voll_med.domain.repository;
 
-import com.mendonca.voll_med.model.Paciente;
+import com.mendonca.voll_med.domain.model.Paciente;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

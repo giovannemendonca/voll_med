@@ -4,7 +4,7 @@ import com.mendonca.voll_med.dtos.DetalhamentoMedico;
 import com.mendonca.voll_med.dtos.MedicoDto;
 import com.mendonca.voll_med.dtos.input.AtualizacaoMedico;
 import com.mendonca.voll_med.dtos.input.CadastroMedico;
-import com.mendonca.voll_med.service.MedicoService;
+import com.mendonca.voll_med.domain.service.MedicoService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

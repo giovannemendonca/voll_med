@@ -1,11 +1,11 @@
-package com.mendonca.voll_med.service;
+package com.mendonca.voll_med.domain.service;
 
+import com.mendonca.voll_med.domain.model.Paciente;
+import com.mendonca.voll_med.domain.repository.PacienteRepository;
 import com.mendonca.voll_med.dtos.input.AtualizacaoPaciente;
 import com.mendonca.voll_med.dtos.input.CadastroPaciente;
 import com.mendonca.voll_med.dtos.input.PacienteDto;
 import com.mendonca.voll_med.exception.PacienteNotFoundException;
-import com.mendonca.voll_med.model.Paciente;
-import com.mendonca.voll_med.repository.PacienteRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

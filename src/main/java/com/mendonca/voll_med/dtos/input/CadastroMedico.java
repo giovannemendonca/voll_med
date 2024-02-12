@@ -1,6 +1,6 @@
 package com.mendonca.voll_med.dtos.input;
 
-import com.mendonca.voll_med.model.Especialidade;
+import com.mendonca.voll_med.domain.model.Especialidade;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
