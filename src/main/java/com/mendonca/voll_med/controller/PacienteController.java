@@ -9,7 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("v1/paciente")
@@ -22,24 +24,32 @@ public class PacienteController {
     }
 
     @GetMapping
-    public Page<PacienteDto> listar(@PageableDefault(size = 10) Pageable pageable) {
-        return pacienteService.listarPacientes(pageable);
+    public ResponseEntity<Page<PacienteDto>> listar(@PageableDefault(size = 10) Pageable pageable) {
+        var paciente = pacienteService.listarPacientes(pageable);
+        return ResponseEntity.ok(paciente);
     }
 
     @GetMapping("/{id}")
-    public PacienteDto buscar(@PathVariable Long id) {
-        return pacienteService.buscarPacientePorId(id);
+    public ResponseEntity<PacienteDto> buscar(@PathVariable Long id) {
+        var paciente = pacienteService.buscarPacientePorId(id);
+        return ResponseEntity.ok(paciente);
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Paciente cadastrarPaciente(@RequestBody CadastroPaciente pacienteDto) {
-        return pacienteService.salvarPaciente(pacienteDto);
+    public ResponseEntity<PacienteDto> cadastrarPaciente(@RequestBody CadastroPaciente pacienteDto,
+                                                         UriComponentsBuilder uriComponentsBuilder) {
+        var paciente  =  pacienteService.salvarPaciente(pacienteDto);
+
+        var uri = uriComponentsBuilder.path("/v1/paciente/{id}").buildAndExpand(paciente.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new PacienteDto(paciente));
     }
 
     @PutMapping("/{id}")
-    public void atualizarPaciente(@PathVariable Long id, @RequestBody AtualizacaoPaciente pacienteDto) {
-        pacienteService.atualizarPaciente(id, pacienteDto);
+    public ResponseEntity<PacienteDto> atualizarPaciente(@PathVariable Long id, @RequestBody AtualizacaoPaciente pacienteDto) {
+        var paciente =  pacienteService.atualizarPaciente(id, pacienteDto);
+
+        return ResponseEntity.ok(new PacienteDto(paciente));
     }
 
     @DeleteMapping("/{id}")

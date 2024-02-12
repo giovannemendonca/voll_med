@@ -1,6 +1,5 @@
 package com.mendonca.voll_med.service;
 
-import com.mendonca.voll_med.dtos.input.AtualizacaoMedico;
 import com.mendonca.voll_med.dtos.input.AtualizacaoPaciente;
 import com.mendonca.voll_med.dtos.input.CadastroPaciente;
 import com.mendonca.voll_med.dtos.input.PacienteDto;
@@ -36,18 +35,16 @@ public class PacienteService {
     @Transactional
     public Paciente salvarPaciente(CadastroPaciente dto) {
         Paciente paciente = new Paciente(dto);
-        System.out.println(dto);
-        System.out.println(paciente);
-
         return pacienteRepository.save(paciente);
     }
 
     @Transactional
-    public void atualizarPaciente(Long id, AtualizacaoPaciente dto) {
+    public Paciente atualizarPaciente(Long id, AtualizacaoPaciente dto) {
         var paciente = pacienteRepository.findById(id).orElseThrow(
                 () -> new PacienteNotFoundException("Paciente não encontrado")
         );
         paciente.atualizar(dto);
+        return paciente;
     }
 
     @Transactional

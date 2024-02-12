@@ -1,5 +1,6 @@
 package com.mendonca.voll_med.service;
 
+import com.mendonca.voll_med.dtos.DetalhamentoMedico;
 import com.mendonca.voll_med.dtos.MedicoDto;
 import com.mendonca.voll_med.dtos.input.AtualizacaoMedico;
 import com.mendonca.voll_med.dtos.input.CadastroMedico;
@@ -26,26 +27,27 @@ public class MedicoService {
         return medicos.map(MedicoDto::new);
     }
 
-    public MedicoDto buscar(Long id) {
+    public DetalhamentoMedico buscar(Long id) {
         var medico = medicoRepository.findByIdAndAtivoTrue(id).orElseThrow(
                 () -> new MedicoNotFoundException("Medico não encontrado")
         );
-        return new MedicoDto(medico);
+        return new DetalhamentoMedico(medico);
     }
 
     @Transactional
-    public Medico cadastrarMedico(CadastroMedico dto) {
+    public DetalhamentoMedico cadastrarMedico(CadastroMedico dto) {
         Medico medico = new Medico(dto);
-        return medicoRepository.save(medico);
+        medico = medicoRepository.save(medico);
+        return new DetalhamentoMedico(medico);
     }
 
     @Transactional
-    public void atualizarMedico(Long id, AtualizacaoMedico dto) {
+    public DetalhamentoMedico atualizarMedico(Long id, AtualizacaoMedico dto) {
         var medico = medicoRepository.findById(id).orElseThrow(
                 () -> new MedicoNotFoundException("Medico não encontrado")
         );
         medico.atualizar(dto);
-
+        return new DetalhamentoMedico(medico);
     }
 
     @Transactional
