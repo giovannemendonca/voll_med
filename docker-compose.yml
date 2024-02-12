@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  forum_kotlin:
+    image: postgres:latest
+    container_name: voll_med
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: voll
+      POSTGRES_PASSWORD: voll
+      POSTGRES_DB: voll_db
