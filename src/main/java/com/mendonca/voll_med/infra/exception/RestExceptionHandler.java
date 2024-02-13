@@ -51,7 +51,7 @@ public class RestExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
     }
 
-    @ExceptionHandler(Exception.class)
+/*    @ExceptionHandler(Exception.class)
     private ResponseEntity<RestErrorMessage> handleException(Exception ex,
                                                              HttpServletRequest request) {
         RestErrorMessage message = new RestErrorMessage(HttpStatus.INTERNAL_SERVER_ERROR,
@@ -59,6 +59,6 @@ public class RestExceptionHandler {
                 ex.getMessage(),
                 request.getRequestURI());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(message);
-    }
+    }*/
 
 }

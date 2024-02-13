@@ -1,3 +1,11 @@
 spring:
   profiles:
     active: @activatedProperties@
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:secret}
+server:
+  error:
+    include-stacktrace: never
