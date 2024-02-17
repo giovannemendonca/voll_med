@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Entity(name = "USUARIO")
+@Entity(name = "USUARIOS")
 public class Usuario implements UserDetails {
 
     @Column(name = "ID")

@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity(name = "MEDICO")
+@Entity(name = "MEDICOS")
 public class Medico {
 
     @EqualsAndHashCode.Include
